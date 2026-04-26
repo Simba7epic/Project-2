@@ -36,3 +36,13 @@ It demonstrates common security vulnerabilities and defensive mechanisms through
 - Server flooding limiting
 
 ---
+
+## Group Members
+
+| Student Name | GitHub Name |
+| -------- | -------- |
+| Samuel Brierley | Simba7epic |
+| AJ Church Guarino | ajchurch |
+| Deneth Sugathasda | denethsugathadasa-ux |
+| Dana Perdana | Dana761 |
+| Kent Leonardi | kentleonardi09 |
