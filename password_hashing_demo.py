@@ -15,12 +15,37 @@ def hash_with_salt(password):
     hashed = hashlib.sha256(salt + password.encode()).hexdigest()
     return salt, hashed
 
+# ==============================
+# SIMULATED DATABASE
+# ==============================
+users = {}
+
+def register(username, password):
+    salt, hashed = hash_with_salt(password)
+    users[username] = (salt, hashed)
+    print(f"[REGISTERED] {username}")
+
+def login(username, password):
+    if username not in users:
+        print("[FAILED] User not found")
+        return
+
+    salt, stored_hash = users[username]
+    test_hash = hashlib.sha256(salt + password.encode()).hexdigest()
+
+    if test_hash == stored_hash:
+        print("[SUCCESS] Login successful")
+    else:
+        print("[FAILED] Incorrect password")
 
 # ==============================
 # DEMO
 # ==============================
 def demo():
     password = "Password123"
+
+    print("\n=== PLAINTEXT STORAGE (INSECURE) ===")
+    print("Stored password:", password)
 
     print("\n=== WITHOUT SALT ===")
     h1 = hash_password(password)
@@ -38,10 +63,18 @@ def demo():
     print("Hash 1:", hs1)
     print("Hash 2:", hs2)
 
-    print("\nSalt 1:", salt1)
-    print("Salt 2:", salt2)
+    print("\nSalt 1:", salt1.hex())
+    print("Salt 2:", salt2.hex())
 
     print("\nSame password → different hashes")
+
+    print("\n=== AUTHENTICATION DEMO ===")
+    register("sam", "Password123")
+
+    print(f"[DEBUG] Stored entry: {users['sam']}")
+
+    login("sam", "wrongpass")
+    login("sam", "Password123")
 
 
 if __name__ == "__main__":
