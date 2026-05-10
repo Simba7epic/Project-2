@@ -10,7 +10,7 @@ It demonstrates common security vulnerabilities and defensive mechanisms through
 ## Included Simulations
 
 ### Authentication Security
-- Brute force attack simulation
+- Brute force attack simulation (brute_force_simulation.py)
 - Rate limiting (delay between attempts)
 - CAPTCHA verification
 - Account lockout system
@@ -21,19 +21,20 @@ It demonstrates common security vulnerabilities and defensive mechanisms through
 
 ### Password Security
 - Weak password demonstration
-- Password strength checking tool
-- Password hashing
+- Password strength checking tool (password_checker_v3.py)
+- Password hashing (password_hashing_demo.py)
 
 ---
 
 ### Authentication Enhancements
-- Multi-factor authentication (MFA) simulation
+- Multi-factor authentication (MFA) simulation (2fa_demo.py)
 - Login security flow improvements
 
 ---
 
 ### Exposed Endpoint Security
-- Server flooding limiting
+- Server flooding limiting (demo_rate_limiting.py)
+- Note that this was an extra addition and not a simulation included within the report
 
 ---
 
